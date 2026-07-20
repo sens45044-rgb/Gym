@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRON PULSE | Premium Fitness Club</title>
+    <!-- Tailwind CSS for modern layout components -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body class="bg-neutral-950 text-white font-sans antialiased selection:bg-amber-500 selection:text-black">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800 px-6 py-4 flex justify-between items-center">
+        <a href="#" class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">IRON PULSE</a>
+        <div class="hidden md:flex gap-8 font-medium text-sm tracking-wide uppercase text-neutral-300">
+            <a href="#home" class="hover:text-amber-400 transition">Home</a>
+            <a href="#about" class="hover:text-amber-400 transition">About</a>
+            <a href="#gallery" class="hover:text-amber-400 transition">Gallery</a>
+            <a href="#pricing" class="hover:text-amber-400 transition">Plans</a>
+            <a href="#contact" class="hover:text-amber-400 transition">Contact</a>
+        </div>
+        <a href="#pricing" class="hidden md:inline-block bg-amber-500 hover:bg-amber-600 text-black font-bold uppercase text-xs tracking-widest px-5 py-2.5 rounded transition">Join Now</a>
+        <button id="mobile-menu-btn" class="md:hidden text-2xl text-neutral-200"><i class="fa-solid fa-bars"></i></button>
+    </nav>
+
+    <!-- Mobile Nav Menu Dropdown -->
+    <div id="mobile-menu" class="fixed top-[73px] left-0 w-full bg-neutral-900 border-b border-neutral-800 z-40 hidden flex-col p-6 gap-4 font-semibold text-center uppercase tracking-wider">
+        <a href="#home" class="mobile-link py-2 hover:text-amber-400">Home</a>
+        <a href="#about" class="mobile-link py-2 hover:text-amber-400">About</a>
+        <a href="#gallery" class="mobile-link py-2 hover:text-amber-400">Gallery</a>
+        <a href="#pricing" class="mobile-link py-2 hover:text-amber-400">Plans</a>
+        <a href="#contact" class="mobile-link py-2 hover:text-amber-400">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(10,10,10,1)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920');">
+        <div class="text-center px-4 max-w-4xl mt-16 animate-fade-in">
+            <h1 class="text-5xl md:text-8xl font-black uppercase tracking-tight leading-none mb-6">Forge Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500">Ultimate</span> Legacy</h1>
+            <p class="text-neutral-400 text-lg md:text-xl font-light tracking-wide max-w-2xl mx-auto mb-10">Premium equipment, world-class trainers, and an elite environment designed to test your limits.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#pricing" class="bg-gradient-to-r from-amber-500 to-amber-600 text-black text-sm uppercase font-black tracking-widest px-8 py-4 rounded hover:brightness-110 transition shadow-lg shadow-amber-500/20">Explore Memberships</a>
+                <a href="tel:+1234567890" class="border border-neutral-700 bg-neutral-900/50 backdrop-blur-sm text-sm uppercase font-bold tracking-widest px-8 py-4 rounded hover:bg-neutral-800 transition"><i class="fa-solid fa-phone mr-2 text-amber-500"></i> Speak To A Trainer</a>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-neutral-500 animate-bounce text-xl"><i class="fa-solid fa-chevron-down"></i></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div>
+            <span class="text-amber-500 text-xs font-black uppercase tracking-widest block mb-3">Who We Are</span>
+            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-6">We Aren't Just A Gym. We Are A High-Performance Sanctuary.</h2>
+            <p class="text-neutral-400 leading-relaxed mb-6">At Iron Pulse, we curate environments engineered for physical breakthroughs. Featuring elite Olympic grade platforms, biometric tracking machinery, and top-tier amenities, we serve athletes dedicated to continuous growth.</p>
+            
+            <div class="grid grid-cols-2 gap-6 mt-8">
+                <div class="border-l-2 border-amber-500 pl-4">
+                    <h4 class="text-3xl font-black text-white">24/7</h4>
+                    <p class="text-neutral-500 text-sm uppercase font-bold tracking-wider mt-1">Smart Access Available</p>
+                </div>
+                <div class="border-l-2 border-amber-500 pl-4">
+                    <h4 class="text-3xl font-black text-white">15,000+</h4>
+                    <p class="text-neutral-500 text-sm uppercase font-bold tracking-wider mt-1">Sq. Ft Luxury Floor</p>
+                </div>
+            </div>
+        </div>
+        <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-orange-600 rounded blur opacity-25 group-hover:opacity-45 transition duration-500"></div>
+            <img src="https://images.unsplash.com/photo-1540206276907-fbd1599b4241?q=80&w=800" alt="Premium Gym Equipment" class="relative rounded border border-neutral-800 grayscale hover:grayscale-0 transition duration-500 w-full object-cover h-[450px]">
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-neutral-900 border-y border-neutral-800 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight">The Facility</h2>
+                <p class="text-neutral-500 mt-2">Take a virtual walk inside our premium workout dynamic spaces.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="overflow-hidden rounded border border-neutral-800"><img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600" class="hover:scale-105 transition duration-500 w-full h-64 object-cover"></div>
+                <div class="overflow-hidden rounded border border-neutral-800"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=600" class="hover:scale-105 transition duration-500 w-full h-64 object-cover"></div>
+                <div class="overflow-hidden rounded border border-neutral-800"><img src="https://images.unsplash.com/photo-1605296867304-46d5465a25f1?q=80&w=600" class="hover:scale-105 transition duration-500 w-full h-64 object-cover"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-amber-500 text-xs font-black uppercase tracking-widest block mb-3">Flexible Tiers</span>
+            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight">Select Your Access Plan</h2>
+            <p class="text-neutral-500 mt-2">All payments are safely processed via encrypted Razorpay networks.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 items-start">
+            <!-- Monthly Plan -->
+            <div class="bg-neutral-900 border border-neutral-800 rounded p-8 flex flex-col justify-between relative hover:border-neutral-700 transition">
+                <div>
+                    <h3 class="text-xl font-bold tracking-wide uppercase text-neutral-300">Monthly Elite</h3>
+                    <div class="mt-4 mb-6 flex items-baseline gap-1">
+                        <span class="text-4xl font-black text-white">₹{{ plans['monthly']['amount'] }}</span>
+                        <span class="text-neutral-500 text-sm">/ month</span>
+                    </div>
+                    <ul class="text-neutral-400 text-sm space-y-4 mb-8 border-t border-neutral-800 pt-6">
+                        <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Access to all gym cardio floors</li>
+                        <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Free locker access & steam showers</li>
+                        <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> 1x Expert onboarding session</li>
+                    </ul>
+                </div>
+                <button onclick="payNow('monthly')" class="w-full py-3 bg-neutral-800 hover:bg-neutral-700 text-white font-bold tracking-wider text-xs uppercase rounded transition">Purchase Pass</button>
+            </div>
+
+            <!-- Quarterly Plan (Popular) -->
+            <div class="bg-neutral-900 border-2 border-amber-500 rounded p-8 flex flex-col justify-between relative shadow-2xl shadow-amber-500/5 transform md:-translate-y-4">
+                <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-amber-500 text-black font-black text-[10px] tracking-widest uppercase py-1 px-3 rounded-full">Most Popular</span>
+                <div>
+                    <h3 class="text-xl font-bold tracking-wide uppercase text-amber-400">Quarterly Pro</h3>
+                    <div class="mt-4 mb-6 flex items-baseline gap-1">
+                        <span class="text-4xl font-black text-white">₹{{ plans['quarterly']['amount'] }}</span>
+                        <span class="text-neutral-500 text-sm">/ 3 months</span>
+                    </div>
+                    <ul class="text-neutral-300 text-sm space-y-4 mb-8 border-t border-neutral-800 pt-6">
+                        <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Standard Cardio & Strength zones</li>
+                        <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> 3x Group CrossFit classes monthly</li>
+                        <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Advanced body biometric evaluation</li>
+                    </ul>
+                </div>
+                <button onclick="payNow('quarterly')" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-black font-black tracking-wider text-xs uppercase rounded transition shadow-md">Purchase Pass</button>
+            </div>
+
+            <!-- Annual Plan -->
+            <div class="bg-neutral-900 border border-neutral-800 rounded p-8 flex flex-col justify-between relative hover:border-neutral-700 transition">
+                <div>
+                    <h3 class="text-xl font-bold tracking-wide uppercase text-neutral-300">Annual Champion</h3>
+                    <div class="mt-4 mb-6 flex items-baseline gap-1">
+                        <span class="text-4xl font-black text-white">₹{{ plans['annual']['amount'] }}</span>
+                        <span class="text-neutral-500 text-sm">/ year</span>
+                    </div>
+                    <ul class="text-neutral-400 text-sm space-y-4 mb-8 border-t border-neutral-800 pt-6">
+                        <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Full 24/7 Unlimited Access All Zones</li>
+                        <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Full access to all group classes</li>
+                        <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Dedicated certified personal coach</li>
+                    </ul>
+                </div>
+                <button onclick="payNow('annual')" class="w-full py-3 bg-neutral-800 hover:bg-neutral-700 text-white font-bold tracking-wider text-xs uppercase rounded transition">Purchase Pass</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Operational & Contact Info Section -->
+    <section id="contact" class="py-20 bg-neutral-900 border-t border-neutral-800 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-black uppercase tracking-tight mb-6">Location & Timing</h2>
+                <div class="space-y-6 mb-8 text-neutral-400">
+                    <p class="flex items-center gap-4"><i class="fa-solid fa-clock text-amber-500 text-lg"></i> <span><strong>Mon - Sat:</strong> 05:00 AM - 11:00 PM <br> <strong>Sun:</strong> 06:00 AM - 04:00 PM</span></p>
+                    <p class="flex items-center gap-4"><i class="fa-solid fa-phone text-amber-500 text-lg"></i> <span><strong>Contact Line:</strong> +1 (234) 567-890</span></p>
+                    <p class="flex items-center gap-4"><i class="fa-solid fa-location-dot text-amber-500 text-lg"></i> <span>Elite Fitness Boulevard, Suite 500, Tech City</span></p>
+                </div>
+                
+                <!-- Quick Contact Direct Call Buttons -->
+                <div class="flex flex-wrap gap-4">
+                    <a href="tel:+1234567890" class="flex-1 min-w-[160px] text-center bg-neutral-800 border border-neutral-700 hover:bg-neutral-700 font-bold px-6 py-3 rounded text-sm uppercase tracking-wider transition"><i class="fa-solid fa-phone-flip mr-2 text-amber-500"></i> Direct Call</a>
+                    <a href="https://wa.me/1234567890?text=Hi!%20I'm%20interested%20in%20joining%20Iron%20Pulse%20Gym.%20Please%20share%20details." target="_blank" class="flex-1 min-w-[160px] text-center bg-green-600 hover:bg-green-700 font-bold px-6 py-3 rounded text-sm uppercase tracking-wider transition text-white"><i class="fa-brands fa-whatsapp mr-2 text-lg"></i> WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Google Maps Embed Layer -->
+            <div class="w-full h-80 md:h-auto rounded border border-neutral-800 overflow-hidden min-h-[300px]">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.422119106263!2d-73.98731968459384!3d40.75797477932688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258a9a40b9b1b%3A0x9a8684d5df05b5f6!2sTimes%20Square!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" class="w-full h-full border-0 grayscale invert brightness-90 contrast-125" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-xs text-neutral-600 border-t border-neutral-900 bg-black">
+        &copy; 2026 IRON PULSE FITNESS CLUB. ALL RIGHTS RESERVED. SECURE RAZORPAY PLATFORM.
+    </footer>
+
+    <!-- Pass configurations safely dynamically into window scopes -->
+    <script>
+        window.RAZORPAY_KEY_ID = "{{ razorpay_key_id }}";
+        window.VERIFY_URL = "{{ url_for('verify_payment') }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

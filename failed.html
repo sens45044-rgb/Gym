@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-neutral-950 text-white font-sans flex items-center justify-center min-h-screen p-4">
+    <div class="bg-neutral-900 border border-neutral-800 max-w-md w-full text-center p-8 rounded shadow-2xl">
+        <div class="w-16 h-16 bg-rose-500/10 border border-rose-500 text-rose-500 text-2xl rounded-full flex items-center justify-center mx-auto mb-6"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <h1 class="text-3xl font-black uppercase tracking-tight mb-2">Transaction Failed</h1>
+        <p class="text-neutral-400 text-sm mb-8">The transaction was cancelled or declined by your banking terminal. No funds were debited.</p>
+        <div class="flex flex-col gap-3">
+            <a href="/#pricing" class="block w-full py-3 bg-neutral-800 hover:bg-neutral-700 text-white font-bold uppercase tracking-wider text-xs rounded transition">Try Another Plan</a>
+            <a href="/" class="block w-full py-2 text-neutral-500 hover:text-neutral-400 text-xs tracking-wider transition">Return Home</a>
+        </div>
+    </div>
+</body>
+</html>
